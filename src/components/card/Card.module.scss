@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 400px;
+    height: 450px;
+    border: 1px solid black;
+    margin: 30px;
+
+    .imgbox {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+
+        img {
+
+            width: 100%;
+            height: 100%;
+
+        }
+
+    }
+
+    .text {
+
+        .title {
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .description {
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .price {
+            color: red;
+        }
+
+    }
+
+    .basket {
+        color: hsl(120, 100%, 63%);
+        background-color: blue;
+        width: 120px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+
+            background-color: rgba(98, 35, 193, 0.778);
+
+        }
+    }
+
+    .wishlist {
+        color: hsl(120, 100%, 63%);
+        background-color: rgb(237, 24, 24);
+        width: 120px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+
+            background-color: rgba(47, 17, 167, 0.778);
+
+        }
+    }
+
+}
