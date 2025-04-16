@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Header.module.scss'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
@@ -9,9 +9,13 @@ const Header = () => {
   return (
     <div className={style.main}>
         <p>ICON</p>
-        <button onClick={() => {navigate("/")}} >Home</button>
+        {/* <button onClick={() => {navigate("/")}} >Home</button>
         <button onClick={() => {navigate("/basket")}}>Basket</button>
-        <button onClick={() => {navigate("/wishlist")}}>Wishlist</button>
+        <button onClick={() => {navigate("/wishlist")}}>Wishlist</button> */}
+        <Link to={"/"}>HOME</Link>
+        <Link to={"/basket"}>Basket</Link>
+        <Link to={"/wishlist"}>Wishlist</Link>
+
     </div>
   )
 }
