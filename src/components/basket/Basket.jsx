@@ -17,7 +17,7 @@ const Basket = () => {
   return (
     <div className={style.main}>
 
-        {data && data.map((item) => <Card item={item} props={"del"} who={"basket"}/>)}
+        {data && data.map((item) => <Card item={item} props={"basket"} who={"basket"}/>)}
 
     </div>
   )

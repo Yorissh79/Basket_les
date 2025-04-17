@@ -40,12 +40,44 @@ const Card = ({item, props, who}) => {
 
         let item = data.find(e => e.id == it.id)
 
-        data.splice(data.indexOf(item.id), 1)
+        data.splice(data.indexOf(item), 1)
 
         localStorage.setItem(`${who}`, JSON.stringify(data))
 
         location.reload()
 
+    }
+
+    const countUp = (it, who) => {
+
+        let data = JSON.parse(localStorage.getItem(`${who}`)) || []
+
+        let item = data.find(e => e.id == it.id)
+
+        let newCount = Number(item.count) + 1
+
+        data[data.indexOf(item)].count = newCount
+
+        localStorage.setItem(`${who}`, JSON.stringify(data))
+
+        location.reload()
+
+    }
+
+    const countDown = (it, who) => {
+
+        let data = JSON.parse(localStorage.getItem(`${who}`)) || []
+
+        let item = data.find(e => e.id == it.id)
+
+        if (Number(item.count > 1)) {
+            let newCount = Number(item.count) - 1
+            data[data.indexOf(item)].count = newCount
+            localStorage.setItem(`${who}`, JSON.stringify(data))
+            location.reload()
+        }
+        
+        else(deleteItem(it, who))
 
     }
 
@@ -63,6 +95,7 @@ const Card = ({item, props, who}) => {
             <p className={style.title}>{item.title}</p>
             {/* <p className={style.description}>{item.description}</p> */}
             <p className={style.price}>${item.price}</p>
+            <p className={style.count}>Number : {item.count}</p>
 
         </div>
 
@@ -74,6 +107,14 @@ const Card = ({item, props, who}) => {
         : ""}
 
         {props == "del" ? <button className={style.del} onClick={() => {deleteItem(item, who)}}>Delete</button> : ""}
+
+        {
+            props == "basket" ? <div>
+                <button className={style.plus} onClick={() => {countUp(item, who)}}>+</button>
+                <button className={style.del} onClick={() => {deleteItem(item, who)}}>Delete</button>
+                <button className={style.minus} onClick={() => {countDown(item, who)}}>-</button>
+            </div> : ""
+        }
 
     </div>
   )
